@@ -1,0 +1,3 @@
+#APRENDIZADOS DA SEMANA
+
+Nessa semana de labenu eu aprendi bastanre como utilizar melhor tanto o git quanto o github, e isso está sendo uma experiência pra lá de *interessante* pois apesar de eu já ter um contato com programação antes estou aprendendo realmente muitas coisas novas. Aprendi melhor sobre como subir os arquivos para o gitHub que era algo que eu ainda não tinha expermientado, tão pouco usar tanto o gitbash.
