@@ -97,6 +97,13 @@ function retornaObjetoEntreDoisNumeros(num1, num2) {
 
 // EXERCÍCIO 08
 function retornaNPrimeirosPares(n) {
+    const arrayPares = []
+    for(let i; i<n; i++){
+        if(n[i] % 2 ==0){
+            arrayPares.push(arrayPares[i])
+        }
+    }
+    return arrayPares
     
    
 }
@@ -125,31 +132,38 @@ function retornaSegundoMaiorESegundoMenor(array) {
 
 // EXERCÍCIO 11
 function retornaChamadaDeFilme(filme) {
-    filme = {
-        nome: 'O Diabo Veste Prada',
-        ano: 2006,
-        diretor: 'David Frankel',
-        atores: ['Meryl Streep', 'Anne Hathaway', 'Emily Blunt', 'Stanley Tucci']
-     }
+   let atoresNovo = ""
+   for(let i; i<atores.length; i++){
+       if(i === filme.atores.length - 1){
+           atoresNovo += filme.atores[i];
 
-     return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${filme.atores}`
+       } 
+       else{
+           atoresNovo+= filme.atores[i]+", ";
+       }
+
+   }
+    
+
+     return `Venha assistir ao filme ${filme.nome}, de ${filme.ano}, dirigido por ${filme.diretor} e estrelado por ${atoresNovo} `
    
 }
 
+
 // EXERCÍCIO 12
 function retornaPessoaAnonimizada(pessoa) {
-    PessoaNome = {
-        nome,
-        idade,
-        endereco,
-        email,
-
+    return {
+        ...pessoa,
+        nome: "Anônimo"
     }
+  
    
 }
 
 // EXERCÍCIO 13A
 function retornaPessoasAutorizadas(pessoas) {
+   
+
    
 }
 
