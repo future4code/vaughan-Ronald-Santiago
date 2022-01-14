@@ -49,9 +49,18 @@ class Post extends React.Component {
   }
 
   onClickCurtida = () => {
-   
-      
+    let novoNumeroCurtidas
+
+    if(this.state.curtido) {
+      novoNumeroCurtidas = this.state.numeroCurtidas - 1
+    } else {
+      novoNumeroCurtidas = this.state.numeroCurtidas + 1
     }
+
+    this.setState({
+      curtido: !this.state.curtido,
+      numeroCurtidas: novoNumeroCurtidas
+    })
   }
 
   onClickComentario = () => {
@@ -67,7 +76,7 @@ class Post extends React.Component {
     })
   }
 
-  render() 
+  render() {
     let iconeCurtida
 
     if(this.state.curtido) {
@@ -82,15 +91,15 @@ class Post extends React.Component {
       componenteComentario = <SecaoComentario aoEnviar={this.aoEnviarComentario}/>
     }
 
-    return <PostContainer>
-      <PostHeader>
-        <UserPhoto src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
+    return <div className={'post-container'}>
+      <div className={'post-header'}>
+        <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
-      </PostHeader>
+      </div>
 
-      <PostPhoto src={this.props.fotoPost} alt={'Imagem do post'}/>
+      <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
 
-      <PostFooter>
+      <div className={'post-footer'}>
         <IconeComContador
           icone={iconeCurtida}
           onClickIcone={this.onClickCurtida}
@@ -102,10 +111,10 @@ class Post extends React.Component {
           onClickIcone={this.onClickComentario}
           valorContador={this.state.numeroComentarios}
         />
-      </PostFooter>
+      </div>
       {componenteComentario}
-    </PostContainer>
+    </div>
   }
-
+}
 
 export default Post
