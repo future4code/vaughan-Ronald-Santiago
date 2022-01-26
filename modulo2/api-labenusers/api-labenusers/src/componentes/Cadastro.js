@@ -1,7 +1,7 @@
 import react from "react";
 import axios from "axios";
 import React from "react";
-import autorizacao from 'componentes/'
+import autorizacao from 'componentes/ '
 
 class Cadastro extends React.Component {
     state ={
