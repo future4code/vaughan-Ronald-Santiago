@@ -26,7 +26,27 @@ class Lista extends React.Component {
         // console.log(error.data);
       });
   };
+  
+  
+  deletarUsuario = (id) => {
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+        axios.delete(url, {
+            headers: {
+                Authorization: "ronald-santiago"
+            }
+        })
+            .then((res) => {
+                alert("Usuário(a) deletado(a) com sucesso!")
+                this.pegarUsuarios()
+            })
+            .catch((err) => {
+                alert("Ocorreu um erro, tente novamente")
+            })
+    }
+
   render() {
+    
+    
     return <div></div>;
   }
 }
