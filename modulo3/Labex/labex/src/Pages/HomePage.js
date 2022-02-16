@@ -1,34 +1,30 @@
-import { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function HomePage(){
-   const [selecionarPagina, setSelecionarPagina] = useState("viagens")
+ const HomePage = () => {
+    const navigate = useNavigate()
 
-   const renderSelecionarPagina = () => {
-      switch(selecionarPagina) {
-          case 'viagens':
-              return
-            case 'admin':
-                return
-            default:
-                return
-      }
-}
+    const goToListTrips = () => {
+        navigate("/viagens")
+    }
+    const goAdmin = () => {
+        navigate("/admin")
 
-const goViagens = () =>{
-    selecionarPagina('viagens')
-}
+    }
 
-const goAdmin = () =>{
-    selecionarPagina('admin')
-}
+    return (
+        <div>
+       <h1>LABEX</h1>
+       <button onClick={goToListTrips}>Viagens</button>
+       <button onClick={goAdmin}>Admin</button>
 
-return(
 
-    <div>
-        <button onClick={goViagens}>Viagens</button>
-        <button onClick={goAdmin}>Admin</button>
-    </div>
-)
+        </div>
+
+
+
+    )
+
 
 
 }
