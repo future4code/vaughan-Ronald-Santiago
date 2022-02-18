@@ -18,9 +18,9 @@ useEffect(()=>{
 
         axios.get(`${urlBase}/trips`)
             .then((response) => {
-                
-                setTrips(response.data.trips)
                 console.log(trips)
+                setTrips(response.data.trips)
+                
 
             }).catch((error) => {
 

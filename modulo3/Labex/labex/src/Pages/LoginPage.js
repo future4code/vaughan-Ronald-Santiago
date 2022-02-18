@@ -37,7 +37,8 @@ const Button = styled.button`
 
   
 
-  const loginAdmin = () => {
+  const loginAdmin = (event) => {
+    event.preventDefault()
      const body ={
          email: email,
          password: password
@@ -47,11 +48,11 @@ const Button = styled.button`
      .then((response)=>{
          console.log("Deu certo", response.data.token)
          window.localStorage.setItem("Token", response.data.token)
-         navigate("/")
+         navigate("/admin")
 
-
+ 
      }).catch((error) =>{
-         console.log("Deu errado",error.response.data )
+         console.log("Deu login errado", error.response.data )
 
      })
 
@@ -72,6 +73,7 @@ const Button = styled.button`
 
 return(
    <div>
+     <form onSubmit={loginAdmin} >
   <input 
    placeholder='email'
    type = 'email'
@@ -87,10 +89,12 @@ value ={password}
 onChange={onChangePassword}
 
 />
-
-<Button onClick ={loginAdmin}>Enviar</Button> 
+ 
+<Button type ={"submit"}>Enviar</Button> 
 
 <Button onClick ={goVoltar}> Voltar</Button>
+
+</form>
    </div>
 
 

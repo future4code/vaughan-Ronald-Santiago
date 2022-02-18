@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import HomePage from './Pages/HomePage'
 import { ListTripsPage } from './Pages/ListTripsPage';
 import { Rotar } from './Rota/Rotar';
+import { TripDetails } from './Pages/TripDetailsPage';
 
 const Header = styled.header`
 

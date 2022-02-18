@@ -33,7 +33,7 @@ const Button = styled.button`
     const navigate = useNavigate()
 
     const goToListTrips = () => {
-        navigate("/viagens")
+        navigate("/trips/list")
     }
     const goAdmin = () => {
         navigate("/login")
