@@ -11,15 +11,15 @@ export const ListTripsPage = () => {
     const [trips, setTrips ] = useState([])
 
 useEffect(()=>{
-    getTrips()
+    getTrips()  //Quando eu abrir a página, essa função irá aparecer
 }, [])
 
     const getTrips = () => {
 
-        axios.get(`${urlBase}/trips`)
+        axios.get(`${urlBase}/trips`)  //Criei uma constante  e só precisei colocar algumas coisas a mais
             .then((response) => {
-                console.log(trips)
-                setTrips(response.data.trips)
+                console.log(trips)  //Sempre bom pegar o console para ver o que estou utilizando
+                setTrips(response.data.trips) //Aqui estou pegando o estado e jogando aqui dentro
                 
 
             }).catch((error) => {
@@ -32,7 +32,7 @@ useEffect(()=>{
     //     return <JobCard key={job.id} job={job} goToDetailPage={this.props.goToDetailPage} addToCart={this.props.addToCart}/>
 
     // const viagens = getTrips
-    const listadeViagens = trips.map((trips) => {
+    const listadeViagens = trips.map((trips) => { //Pois o valor a partir do set foi para aí, então está aí dentro
             return(
                 <div>
                 <h4 > Nome: {trips.name}</h4>

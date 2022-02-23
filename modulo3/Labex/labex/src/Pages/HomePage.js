@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import styled from "styled-components";
 
 
@@ -29,14 +29,14 @@ const Button = styled.button`
 `     
 
 
- const HomePage = () => {
+ const HomePage = () => {      //Criei aqui um componente funcional
     const navigate = useNavigate()
 
-    const goToListTrips = () => {
+    const goToListTrips = () => {  //Para quando o botão ser clicado, ir para página de listas 
         navigate("/trips/list")
     }
     const goAdmin = () => {
-        navigate("/login")
+        navigate("/login") //Aqui para ir para a de login
 
     }
 
