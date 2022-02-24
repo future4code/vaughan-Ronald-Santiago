@@ -59,14 +59,86 @@
 // export default LoginPage
 
 import React from "react"
+import { InputsContainer, LogoImage, ScreenContainer, SignUpButtonContainer } from "./styled"
+import logo from '../../assets/logo.png'
+import { TextField } from "@mui/material"
+import useForm from "../../hooks/useForm"
+import { Button } from "@mui/material"
+import LoginForm from "./LoginForm"
+import { useNavigate } from "react-router-dom"
+import { goToSignUp } from "../../routes/coordinator"
 
 const LoginPage = () => {
+    const navigate = useNavigate()
+
+    const [form, onChange, clear] = useForm({email : "", password: ""})
+
+    const onSubmitForm = (event) => {
+        event.preventDefault()
+
+    }
 return (
-   <div>
-       Olá, apareça
+   <ScreenContainer>
+       <LogoImage src ={logo}/>
+       <LoginForm />
+   {/* <InputsContainer>
+   <form onSubmit={onSubmitForm} >
+    <TextField 
+      name ={"email"}
+      value ={form.email}
+      onChange ={onChange}
+      label = {"Email"}
+      variant ={"outlined"}
+      fullWidth
+      margin ={"normal"}
+      required
+      type ={ "email"}
+    
+    />
 
 
-   </div>
+<TextField 
+      name ={"password"}
+      value ={form.password}
+      onChange ={onChange}
+      label = {"Senha"}
+      variant ={"outlined"}
+      fullWidth
+      margin ={"normal"}
+      required
+      type ={ "password"}
+    
+    /> */}
+{/* 
+    <Button 
+    type = {"submit"}
+    fullWidth
+     variant ={"contained"}
+     color = {"primary"}
+     margin ={"normal"}
+     >Clique aqui</Button>
+
+   </form>
+   
+   </InputsContainer> */}
+
+   <SignUpButtonContainer>
+    <Button
+    onClick = {() => goToSignUp(navigate)}
+        type = {"submit"}
+        fullWidth
+         variant ={"contained"}
+         color = {"primary"}
+         margin ={"normal"}
+    
+    >
+        Não possui conta ? Cadastre-se
+
+    </Button>
+
+   </SignUpButtonContainer>
+
+   </ScreenContainer>
 
 
 )

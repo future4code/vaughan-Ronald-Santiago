@@ -8,17 +8,16 @@ import SignUpPage from './pages/SignUpPage/SignUpPage'
 import RecipesListPage from './pages/RecipeListPage/RecipesListPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import RecipeDetailsPage from './pages/RecipeDetailsPage/RecipeDetailPage'
+import Router from './routes/Router'
+import theme from './constants/theme'
+import { ThemeProvider } from '@mui/material';
 
 const App = () => {
   return (
-    <>
-      <SignUpPage/>
-     <AddRecipePage/> 
-      <RecipeDetailsPage/>
-      <LoginPage/>
-      <RecipesListPage/> 
+    <ThemeProvider theme={theme}>
+      <Router/>
 
-      </>
+      </ThemeProvider>
       
 )
 }
