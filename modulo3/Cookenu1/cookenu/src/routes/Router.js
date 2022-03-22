@@ -5,14 +5,13 @@ import RecipeDetailPage from "../pages/RecipeDetailsPage/RecipeDetailPage"
 import RecipesListPage from "../pages/RecipeListPage/RecipesListPage"
 import SignUpPage from "../pages/SignUpPage/SignUpPage"
 import ErrorPage from "../pages/Error Page/ErrorPage"
-import Header from "../components/Header/Header"
+
 
 const Router = ({ setRigthButtonText }) => {
     return (
-        <BrowserRouter>
-        <Header/>
+       
             
-           
+          //  <BrowserRouter>
             <Routes>
              
 
@@ -25,10 +24,11 @@ const Router = ({ setRigthButtonText }) => {
 
                 
 
-                <Route />
+                {/* <Route /> */}
 
             </Routes>
-        </BrowserRouter>
+            // </BrowserRouter>
+      
         
         )
 

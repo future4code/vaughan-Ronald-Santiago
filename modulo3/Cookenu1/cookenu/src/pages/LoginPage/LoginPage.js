@@ -67,13 +67,16 @@ import { Button } from "@mui/material"
 import LoginForm from "./LoginForm"
 import { useNavigate } from "react-router-dom"
 import { goToSignUp } from "../../routes/coordinator"
+import useUnProtectedPage from "../../hooks/useUnProtectedPage"
 
 const LoginPage = () => {
+    useUnProtectedPage()
     const navigate = useNavigate()
 
     const [form, onChange, clear] = useForm({email : "", password: ""})
 
     const onSubmitForm = (event) => {
+        
         event.preventDefault()
 
     }

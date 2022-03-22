@@ -7,31 +7,38 @@ import Toolbar from '@mui/material/Toolbar'
 // import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
+// import { useState } from 'react';
 
 
-const Header =()=> {
+const Header =(rightButtonText,setRightButtonText)=> {
+    
+    const token = localStorage.getItem("token")
     const navigate = useNavigate()
+    
+    const logout = () => {
+      localStorage.removeItem("token")
+    }
+
+   const rightButtonAction = () => {
+     if (token){
+       logout()
+       setRightButtonText("Login")
+       goToLoginPage(navigate)
+     }
+     else {
+       goToLoginPage(navigate)
+
+     }
+   }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <StyledToolbar>
-          {/* <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton> */}
-
-{/* component="div" sx={{ flexGrow: 1 }} */}
-          {/* <Typography variant="h6">
-            News
-          </Typography> */}
+       
     
           <Button onClick ={() => goToRecipesList(navigate)} color="inherit">Cookenu</Button>
-          <Button onClick ={() => goToLoginPage(navigate)} color="inherit">Login</Button>
+          <Button onClick ={rightButtonAction} color="inherit">{rightButtonText}Login</Button>
          
         </StyledToolbar>
       </AppBar>
