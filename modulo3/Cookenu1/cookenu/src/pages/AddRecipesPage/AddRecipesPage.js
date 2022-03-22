@@ -1,17 +1,24 @@
-import React from "react"
-import useProtectedPage from "../../hooks/useProtectedPage"
+import React from 'react'
+import useProtectedPage from '../../hooks/useProtectedPage'
+import { RecipeContainer, ScreenContainer } from './styled'
+import AddRecipeForm from './AddRecipeForm'
+
 
 const AddRecipePage = () => {
     useProtectedPage()
-return (
-   <div>
-       Olá, apareça
+    return (
+        <ScreenContainer>
+           <RecipeContainer>
+
+           
+           <AddRecipeForm/>
+           </RecipeContainer>
 
 
-   </div>
+        </ScreenContainer>
 
 
-)
+    )
 
 }
 

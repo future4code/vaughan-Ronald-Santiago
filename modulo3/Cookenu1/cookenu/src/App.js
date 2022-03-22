@@ -10,7 +10,7 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import RecipeDetailsPage from './pages/RecipeDetailsPage/RecipeDetailPage'
 import Router from './routes/Router'
 import theme from './constants/theme'
-import { ThemeProvider } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles/';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './components/Header/Header';
 import { useState } from 'react';
@@ -23,13 +23,13 @@ const App = () => {
   return (
 
     <ThemeProvider theme={theme}>
-      <BrowserRouter/>
+      <BrowserRouter>
       
       <Header rightButtonText={rightButtonText} setRightButtonText={setRightButtonText} />
-      <Router/>
+      <Router  rightButtonText={rightButtonText} setRightButtonText={setRightButtonText}/>
       
 
-      <BrowserRouter/>
+      </BrowserRouter>
       </ThemeProvider>
       
 )

@@ -1,0 +1,15 @@
+{
+  "name": "template-node-npm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Funcionou\" && exit 1",
+    "search-country-by-name": "node ./index.js",
+    "search3": "node ./Exercicio3.js"
+  },
+  "author": "ronald-santiago",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
+

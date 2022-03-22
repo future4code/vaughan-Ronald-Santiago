@@ -68,8 +68,9 @@ import LoginForm from "./LoginForm"
 import { useNavigate } from "react-router-dom"
 import { goToSignUp } from "../../routes/coordinator"
 import useUnProtectedPage from "../../hooks/useUnProtectedPage"
+import { login } from "../../services/user"
 
-const LoginPage = () => {
+const LoginPage = ({setRightButtonText}) => {
     useUnProtectedPage()
     const navigate = useNavigate()
 
@@ -78,6 +79,7 @@ const LoginPage = () => {
     const onSubmitForm = (event) => {
         
         event.preventDefault()
+        login(form, navigate, setRightButtonText)
 
     }
 return (

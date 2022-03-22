@@ -3,14 +3,14 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { StyledToolbar } from './styled';
 import { goToRecipesList,goToLoginPage } from '../../routes/coordinator';
-import Toolbar from '@mui/material/Toolbar'
+// import Toolbar from '@mui/material/Toolbar'
 // import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 // import { useState } from 'react';
 
 
-const Header =(rightButtonText,setRightButtonText)=> {
+const Header =({rightButtonText,setRightButtonText})=> {
     
     const token = localStorage.getItem("token")
     const navigate = useNavigate()
@@ -37,8 +37,8 @@ const Header =(rightButtonText,setRightButtonText)=> {
         <StyledToolbar>
        
     
-          <Button onClick ={() => goToRecipesList(navigate)} color="inherit">Cookenu</Button>
-          <Button onClick ={rightButtonAction} color="inherit">{rightButtonText}Login</Button>
+          <Button onClick={() => goToRecipesList(navigate)} color="inherit">Cookenu</Button>
+          <Button onClick={rightButtonAction} color="inherit">{rightButtonText}</Button>
          
         </StyledToolbar>
       </AppBar>

@@ -4,14 +4,17 @@ import { TextField } from "@mui/material"
 import Button from '@mui/material/Button'
 import useForm from "../../hooks/useForm"
 import { useNavigate } from "react-router-dom"
+import { signUp } from "../../services/user"
 
-const SignUpForm = () => {
+const SignUpForm = ({setRightButtonText}) =>      { 
+    console.log({setRightButtonText})
     const navigate = useNavigate()
     const [form, onChange, clear] = useForm({ name: "", email: "", password: "" })
 
     const onSubmitForm = (event) => {
-      event.preventDefault()
-        console.log(form)
+        event.preventDefault()
+        signUp(form, navigate, setRightButtonText)
+        
 
     }
 
@@ -46,20 +49,21 @@ const SignUpForm = () => {
 
                     />
 
-<TextField
+                    <TextField
                         value={form.password}
                         name={'password'}
                         onChange={onChange}
                         label={'Senha'}
                         // variant={'outlined'}
-                        type={'password'}
+                        type='password'
                         fullWidth
                         required
                         margin={'normal'}
 
                     />
                 </InputsContainer>
-                <Button
+                <Button  
+                       
                     color={'primary'}
                     variant={'contained'}
                     type={'submit'}
@@ -67,7 +71,7 @@ const SignUpForm = () => {
 
 
                 >
-                Fazer Cadastro  </Button>
+                    Fazer Cadastro  </Button>
 
 
 
