@@ -25,21 +25,21 @@ type Pessoa ={
 
 }
 
-let Pessoa1 ={
+let Pessoa1: Pessoa= {
     nome: "Ronald",
     idade: 24,
     corFavorita:corArcoIris.AMARELO
 
 }
 
-let Pessoa2 ={
+let Pessoa2: Pessoa ={
     nome: "Gabriela",
     idade: 25,
     corFavorita:corArcoIris.AZUL
 
 }
 
-let Pessoa3 ={
+let Pessoa3: Pessoa ={
     nome: "Ana",
     idade: 35,
     corFavorita:corArcoIris.VERDE
