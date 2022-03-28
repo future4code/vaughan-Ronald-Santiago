@@ -1,7 +1,9 @@
 console.log("Olá Vaughan")
 
 function pessoa(nome: string, data: string){
-    let resultado1 = data.split('', 2)
+    let resultado1 = data.split("")
+    let dia = resultado1[0]+resultado1[1]
+    console.log(dia)
     let resultado2 = data.split('//', )
     let resultado3 =data.split(' ')
 
