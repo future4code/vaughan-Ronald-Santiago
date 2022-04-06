@@ -1,0 +1,124 @@
+EXERCÍCIO 1 
+a) Essa linha serve para remover uma coluna.
+b) Ali está alterando o genêro a partir do CHANGE.
+c) Ali da mesma forma estou supondo que altera o genêro.
+
+EXERCÍCIO 5
+a) O resultado que apareceu mostra quantos atores e atrizes ainda tem na tabela.
+b)
+
+
+EXERCÍCIOS DESENVOLVIDOS NO WORBENCH
+ USE `vaughan-21713049-ronald-santiago` ;
+SET SQL_SAFE_UPDATES = 0; 
+CREATE TABLE Actor (
+    id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR (255) NOT NULL,
+    salary FLOAT NOT NULL,
+    birth_date DATE NOT NULL,
+    gender VARCHAR(6) NOT NULL
+);
+
+SHOW databases;
+SHOW TABLES;
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "001", 
+  "Tony Ramos",
+  400000,
+  "1948-08-25", 
+  "male"
+);
+
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "002", 
+  "Gloria Ramos",
+  12000,
+  "1948-08-25", 
+  "male"
+);
+
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "003", 
+  "Fernanda Montenegro",
+  300000,
+  "1929-10-19", 
+  "female"
+);
+
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "004", 
+  "Ronald Santiago",
+  400000,
+  "1949-04-18", 
+  "male"
+);
+
+INSERT INTO Actor (id, name, salary, birth_date, gender)
+VALUES(
+  "005", 
+  "Bella Harmone",
+  719333.33,
+  "1990-03-26", 
+  "female"
+);
+
+CREATE TABLE Movie (
+		id VARCHAR(255) PRIMARY KEY,
+    title VARCHAR(255) NOT NULL UNIQUE,
+    synopsis TEXT NOT NULL,
+    release_Date DATE NOT NULL,
+    rating INT NOT NULL
+)
+
+
+SELECT * from Actor WHERE gender = "female";
+SELECT salary from Actor WHERE name = "Tony Ramos";
+SELECT * from Actor WHERE gender = "invalid";
+SELECT id, name, salary from Actor WHERE salary < 500000;
+
+SELECT * FROM Actor
+WHERE name NOT LIKE "A%" AND salary > 350000;
+
+SELECT * FROM Actor
+WHERE name LIKE "%g%" OR name LIKE "%G%";
+SELECT * FROM Actor
+WHERE 
+(name LIKE "%g%" OR name LIKE "%G%" OR name LIKE "%a%" OR name LIKE "%A%") AND salary BETWEEN 350000 AND 900000;
+
+ALTER TABLE Actor CHANGE gender gender varchar(100);
+
+UPDATE Actor
+SET name = "JULIANA PAES"
+WHERE name = "Juliana Paes";
+
+UPDATE Actor
+SET 
+  name = "Vanessa",
+  birth_date = "2004-12-06",
+  salary = 30000,
+  gender = "female"
+  WHERE id = "005";
+  
+  SET SQL_SAFE_UPDATES = 0; 
+  DELETE FROM Actor WHERE name = "Fernanda Montenegro";
+  DELETE FROM Actor WHERE gender = "male" AND salary >1000;
+  
+  SELECT MAX(salary) FROM Actor;
+  SELECT MIN(salary) FROM  Actor WHERE gender = "female";
+  SELECT COUNT(*) FROM Actor WHERE gender = "female";
+  SELECT SUM(salary) FROM ACTOR;
+  
+SELECT COUNT(*), gender FROM Actor GROUP BY gender;
+SELECT id, name FROM Actor ORDER BY name DESC;
+SELECT * FROM Actor ORDER BY salary;
+SELECT * FROM Actor ORDER BY salary DESC LIMIT 3;
+SELECT AVG(salary), gender FROM Actor GROUP BY gender;
+  
+
+  
+  
+
