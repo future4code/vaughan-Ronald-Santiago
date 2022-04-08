@@ -1,0 +1,89 @@
+1) a)Essa é a chave que permite a referência a outras tabelas, também chamada de Foreign Key.
+
+c) Ao tentar executar esse código o erro que apareceu foi o seguinte: 
+"não pode adicionar ou atualizar uma linha filha"
+
+
+2)a) Essa tabela basicamente tem duas linhas que são referências a id primária de outras tabelas, nesse caso a movie e e actor.
+
+c) Novamente apareceu o erro  "não pode adicionar ou atualizar uma linha filha".
+
+-----------------------------------------------------------
+USE `vaughan-21713049-ronald-santiago`;
+ 
+INSERT INTO Movie(id, title, synopsis, release_Date, rating)
+VALUES(
+  "001",
+  "Se Eu Fosse Você",
+  "Clio e Helena são casados há muitos anos e enfrentam a rotina do casamento. Um dia eles são atingidos por um fenômeno inexplicável e trocam de corpos",
+  '2006-01-06',
+  07
+  
+);
+
+
+INSERT INTO Movie(id, title, synopsis, release_Date, rating)
+VALUES(
+  "002",
+  "Doce de mãe",
+  "Dona Picucha, uma animada senhora de 85 anos, sempre causa grandes confusões. A vida dela e dos seus quatro filhos sofre uma reviravolta depois que Zaida, empregada e amiga de Dona Picucha, anuncia que vai se casar e não poderá mais morar com ela",
+  '2012-02-04',
+  10
+  
+);
+ 
+ 
+ 
+CREATE TABLE Avaliacao (
+id VARCHAR(255) PRIMARY KEY,
+comment TEXT NOT NULL,
+rate FLOAT NOT NULL,
+movie_id VARCHAR(255),
+FOREIGN KEY (movie_id) REFERENCES Movie(id)
+);
+
+INSERT INTO Avaliacao(id, comment, rate, movie_id)
+VALUES(
+"001",
+"Bom demais !",
+8,
+"001"
+);
+
+INSERT INTO Avaliacao(id, comment, rate, movie_id)
+VALUES(
+"002",
+"Mediando",
+8,
+"003"
+);
+
+INSERT INTO Avaliacao(id, comment, rate, movie_id)
+VALUES(
+002,
+"ÓTIMO !",
+2,
+"001"
+);
+
+ALTER TABLE Avaliacao DROP COLUMN rating;
+
+CREATE TABLE MovieCast (
+movie_id VARCHAR(255),
+actor_id VARCHAR(255),
+FOREIGN KEY (movie_id) REFERENCES Movie(id),
+FOREIGN KEY(actor_id) REFERENCES  Actor(id)
+);
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES("001", "005");
+
+INSERT INTO MovieCast(movie_id, actor_id)
+VALUES("002", "002");
+
+SELECT m.id as movie_id, r.rate as rating FROM Movie m
+INNER JOIN Avaliacao r ON m.id = r.movie
+
+
+
+
