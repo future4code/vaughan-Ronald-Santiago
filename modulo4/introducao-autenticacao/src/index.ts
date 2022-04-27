@@ -22,6 +22,28 @@ export const connection = knex({
   }
 });
 
+//1a) Qual a sua opinião em relação a usar strings para representar os ids? Você concorda que seja melhor do que usar números?
+//Sim, pois pode ser utilizado tanto caracteres quanto números
+
+//2)a)Primeiro ali está tendo a conexão com o banco de dados a partir do connection e após isso está sendo feito uma inserção de dados na tabela ali dentro do into
+
+//3a)Serve para ser somente string
+
+const userTableName = "User";
+
+	 const createUser = async (
+		id: string, 
+		email: string, 
+		password: string) => {
+	  await connection
+	    .insert({
+	      id,
+	      email,
+	      password,
+	    })
+	    .into(userTableName);
+	};
+
 
 
 
