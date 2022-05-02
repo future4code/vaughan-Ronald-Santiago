@@ -1,7 +1,9 @@
 import userCreate from "./endpoints/createUser";
+import login from "./endpoints/login";
 import app from "./app";
 
 app.post('/user', userCreate)
+app.post('/userlogin', login)
 
 
 

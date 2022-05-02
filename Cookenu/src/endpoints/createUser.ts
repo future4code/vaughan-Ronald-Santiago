@@ -3,6 +3,7 @@ import { IdGenerator } from "../services/IdGenerator";
 import {Request, Response} from 'express'
 import { Authenticator } from "../services/Authenticator";
 import { authenticationData } from "../types";
+import { HashManager } from "../services/HashManager";
 export type user = {
 
     id: string
@@ -25,7 +26,11 @@ export default async function userCreate( req: Request, res: Response): Promise<
 
        let IdGenerato = new IdGenerator()
        const id: string = IdGenerato.generateId()
-       const newUser: user = {id, email, name, password}
+       let hashManager = new HashManager()
+       let passwordValid = hashManager.createHash(password)
+
+
+       const newUser: user = {id, email, name, password:passwordValid}
 
        await connection('Users_Cookenu').insert(newUser)
 
