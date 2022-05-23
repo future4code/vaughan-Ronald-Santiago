@@ -10,6 +10,10 @@ export const searchPokemonName = async (Name: string): Promise<any> => {
   }
 
   
+//   const result = await connection("aula48_exercicio")
+//         .where("name", "LIKE", `%${name}%`);
+ 
+  
   
   
   
